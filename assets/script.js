@@ -1,3 +1,4 @@
+//setting elements from html
 const elements = {
   searchInput: document.getElementById("search-input"),
   searchButton: document.getElementById("search-button"),
@@ -5,6 +6,7 @@ const elements = {
   cityHistory: document.getElementById("city-history"),
 };
 
+//creates arrays to reference
 const indexs = [0, 7, 15, 23, 31, 39];
 const cityDayEls = Array.from({ length: 6 }, (_, i) =>
   document.getElementById(`cityday${i === 0 ? "" : i}`)
@@ -22,9 +24,11 @@ const weatherIconEls = Array.from({ length: 6 }, (_, i) =>
   document.getElementById(`weather-icon${i === 0 ? "" : i}`)
 );
 
+//sets elemtnt from html
 const weatherDisplayEl = document.getElementById("displayweather");
 const weatherIconEl = document.getElementById("weather-icon");
 
+//api key is called and worked through the array to store data
 const apiKey = "961c97474e283a72c3bce315872b931b";
 const cities = [];
 const cityHistory = [];
@@ -33,6 +37,7 @@ const humids = Array(6).fill(0);
 const winds = Array(6).fill(0);
 const dates = Array(6).fill(new Date());
 
+//uses the api to fetch location and weather data
 async function getLocation(city) {
   try {
     const locationUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
@@ -45,6 +50,8 @@ async function getLocation(city) {
   }
 }
 
+//fetching lat and lon data from api, initially thought i would have
+//to look up a lat and lon for each city 😂 api to the rescue
 async function getWeather(lat, lon) {
   try {
     const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=english&appid=${apiKey}`;
@@ -56,6 +63,7 @@ async function getWeather(lat, lon) {
   }
 }
 
+//takes data, puts into loop, pushes data, updates elements from html
 function displayWeather(data) {
   try {
     const city = data.city.name;
@@ -87,6 +95,7 @@ function displayWeather(data) {
   }
 }
 
+//adds event listener for search button on click to call function
 elements.searchButton.addEventListener("click", function () {
   const searchInput = elements.searchInput.value;
   getLocation(searchInput);
@@ -100,11 +109,13 @@ elements.searchButton.addEventListener("click", function () {
   updateCityHistory(cityHistory);
 });
 
+//pulls data from local to history city history
 const storedCityHistory = JSON.parse(localStorage.getItem("city_history"));
 if (Array.isArray(storedCityHistory)) {
   cityHistory.push(...storedCityHistory);
 }
 
+//generates the list of history in button format
 function printCityHistory() {
   elements.cityHistory.innerHTML = "";
   for (let i = 0; i < cityHistory.length; i++) {
@@ -124,9 +135,12 @@ function printCityHistory() {
   }
 }
 
+//const updates city history to local storage
 function updateCityHistory(searchInput) {
   localStorage.setItem("city_history", JSON.stringify(searchInput));
   printCityHistory();
 }
 
+//prints the city history display when loading page
 printCityHistory();
+//done
