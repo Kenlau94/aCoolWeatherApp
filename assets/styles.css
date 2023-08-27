@@ -7,16 +7,16 @@
 @media screen and (min-width: 768px) {
 }
 
-/* Search history */
 #search-history {
   font-size: 1.2rem;
   color: rgb(22, 22, 22);
   border-radius: 18px;
 }
+
+/*one thing that i could not do is add a border radius
+no matter what i added, it would not apply a border radius
+just a simple little thing that bugged me*/
 #search-button {
-  cursor: pointer;
-}
-#city-history {
   cursor: pointer;
 }
 
@@ -28,8 +28,8 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(243, 239, 237, 0.755);
-  border: 1px solid rgba(255, 255, 255, 0.394);
+  background-color: rgba(250, 250, 250, 0.555);
+  border: 1px solid rgba(150, 150, 150, 0.451);
   border-radius: 1rem;
   text-align: center;
   box-shadow: 0 0 20px rgb(0, 255, 251);
@@ -65,7 +65,7 @@ body {
 .card-column {
   flex: 1 1 250px;
   margin: 10px;
-  background: rgba(254, 254, 254, 0.676);
+  background: rgba(250, 250, 250, 0.555);
   border-radius: 1rem;
 }
 
@@ -75,9 +75,13 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.454);
+  border: 1px solid rgba(150, 150, 150, 0.451);
   border-radius: 1rem;
   text-align: center;
   min-height: 300px;
   box-shadow: 0 0 20px rgb(0, 255, 251);
+}
+
+#city-history {
+  cursor: pointer;
 }
