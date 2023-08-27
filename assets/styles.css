@@ -13,11 +13,11 @@
   border-radius: 18px;
 }
 
-/*one thing that i could not do is add a border radius
-no matter what i added, it would not apply a border radius
-just a simple little thing that bugged me*/
-#search-button {
-  cursor: pointer;
+body {
+  background-image: url(./images/polar2.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -44,11 +44,11 @@ header {
   align-items: center;
 }
 
-body {
-  background-image: url(./images/polar2.jpg);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+/*one thing that i could not do is add a border radius
+no matter what i added, it would not apply a border radius
+just a simple little thing that bugged me*/
+#search-button {
+  cursor: pointer;
 }
 
 .container {
