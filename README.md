@@ -64,6 +64,8 @@ script src="https://code.jquery.com/jquery-3.4.1.min.js">
 
 ## Link
 
+[Deployed App](https://kenlau94.github.io/aCoolWeatherApp/)
+
 ## Pics
 
 ![DeployedApp](./assets/images/app.jpg)
